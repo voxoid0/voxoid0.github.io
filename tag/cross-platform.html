@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title>joelbecker.net - cross-platform</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">joelbecker.net</a></h1>
+                <nav><ul>
+                    <li><a href="/category/life.html">life</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">music</a></li>
+                    <li><a href="/category/tech.html">tech</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/scala-javafx-the-killer-duo-for-multi-platform-development.html">Scala + JavaFX: The Killer Duo for Multi-Platform Development</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-03-10T00:00:00-08:00">
+                Published: Thu 10 March 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/joel-becker.html">Joel Becker</a>
+        </address>
+<p>In <a href="/category/tech.html">tech</a>.</p>
+<p>tags: <a href="/tag/scala.html">[scala</a> <a href="/tag/javafx.html">javafx</a> <a href="/tag/cross-platform.html">cross-platform</a> <a href="/tag/mobile.html">mobile</a> <a href="/tag/android.html">android</a> <a href="/tag/ios.html">ios</a> <a href="/tag/windows.html">windows</a> <a href="/tag/os-x.html">os x</a> <a href="/tag/startup.html">startup</a> <a href="/tag/productivity.html">productivity]</a> </p>
+</footer><!-- /.post-info --><p><img alt="Original Batman and Robin" src="/images/batman-and-robin.jpg?classes=float-right&amp;cropResize=320,240"></p>
+<p>...in my case at least. But likely for you too! Here's why.</p>
+<p>I'm building an application for our start-up company that is to run on four of the major desktop and mobile platforms: Windows, OS X, Android, and iOS. Also, being on a relatively small budget, our only developer is me, mua, solo, and yet time-to-market and speedy changing is key to our success.</p>
+<h2>JavaFX</h2>
+<p>JavaFX is one of the only decent UI frameworks that runs on all four platforms, allowing you to not only reuse non-UI code but the UI wiring and layouts as well! Granted you still need to meet the needs of different screen sizes and orientations. </p>
+<p>Honestly the biggest disadvantage I see is that you lose some of the native controls and look&amp;feel of each mobile platform. Ideally an app looks and feels native, giving the user a consistent experience across all of the apps on their device, and making the transition to your app seemless.</p>
+<p>But while most companies developing for these platforms find it necessary to have two or three different teams (desktop, Android, iOS), I'll gladly take the not-so-native penalty. If your app solves a real problem, and provides a good user experience, non-native can't stop your success. Getting to market too late, or reacting to change more slowly than your competitors do, can. And I believe JavaFX (with the JavaFXPorts project) is currently the best "write-once, run anywhere" solution available.</p>
+<h3>What about C# and Xamarin?</h3>
+<p>I'm also a C# programmer and love the language. I see a couple disadvantages in using <a href="https://xamarin.com/">Xamarin</a> for my kind of situation:</p>
+<ul>
+<li>Scala is better than C#</li>
+<li>What about F#? F# is in my opinion not quite as advantageous as Scala (I understand there can be a large discussion about pure functional versus letting OO in the language). But perhaps more importantly, F# doesn't have nearly the community that Scala has. That means that when I run into a snag with Scala, Google can find me the solution much more often. And once again that saves precious time.</li>
+<li>Xamarin is only for mobile, not desktop. So you'd still need some separate, non-Xamarin projects for desktop.</li>
+<li>Xamarin doesn't focus on a write-once-run-everywhere solution for UI. They encourage developing native UIs (which is great if you can afford it); so if you're going to ride on Xamarin you're probably going to want to create separate UIs for iOS, Android, and desktop.</li>
+<li>There <em>used to be</em> another advantage: cost. RoboVM, the technology which allows Java applications to run on iOS, was free up until the Fall of 2015, upon which it is only free to game developers using <a href="https://libgdx.badlogicgames.com/">libgdx</a>. It is now comparable in price to Xamarin: Xamarin Business is about $1000 per mobile platform, and RoboVM Business is $1500 for iOS (and you already have Android for free). Nevertheless, these figures are insignificant compared to the expense of developing software.</li>
+</ul>
+<h2>Scala</h2>
+<p>I used to think Scala would give me a competitive advantage. Now after using it for about a month to develop our application, I'm <em>completely convinced</em>!</p>
+<p>In a nutshell, while C# is way better than Java (yes even Java 8), Scala tops them both. (And I already gave my thoughts on F# above.) I didn't think going from Java and C# to Scala would be like the transition from C/C++ to Java, but now that I can fully wield the functional paradigm and Scala's idioms, it really is that dramatic of an improvement. Some of the biggest benefits from C++ to Java was:</p>
+<ol>
+<li>The JVM garbage collector. (C#'s run-time has it also.) Instead of using either the boost smart pointer library or the even more archaic malloc and free.</li>
+<li>Built-in collections and iterators. C++'s STL (Standard Template Library) provided these things as well, but with <em>very verbose and hard to read</em> semantics compared to the modern counterparts</li>
+<li>The platform libraries for all of your basic needs like File management, XML parsing, etc.</li>
+<li>Made to be cross-platform</li>
+</ol>
+<p>Now going from Java and C# to Scala, some of the biggest benefits I recognize so far -- realize I can list these, but it's hard (and was hard for me) to really grasp the magnitude of the benefits until you've actually applied them for a while on a real project:</p>
+<ol>
+<li>Functional paradigm, which just by itself provides many benefits. </li>
+<li>Higher-level collection operations, algorithms, and expressions. Some of these kinds of things, like map, foldLeft, filter, easy collection initializers etc., are being introduced more and more into Java (version 8) and C# (Linq), but are still behind Scala and not as elegant and terse.</li>
+<li>Compact code. This allows greater ability to make program changes and add features, because there's less to read and understand, more of it is expressed at a higher level, and there's not nearly as much boiler plate for things like class properties and constructors.</li>
+<li>An extra boost of energy from the excitement of using such a beneficial technology. You know how it is. ;)</li>
+</ol>
+<p>Functional programming is really a totally different way of thinking! I've found that writing functional code has been slower for me than writing procedural and object-oriented code. In fact a few times I was tempted to write some Scava (you know, Java-like Scala code -- don't do it! Turn back!) so that I could type code at full speed. But I've come to realize, not only am I getting faster at thinking functionally, but those 4 lines of code I took so long to write would have been 20 or 30 lines of Java and would have taken just as long, and then a lot longer later to come back to the code and understand it. Scala not only reduces lines of code, but consequently the number of classes and files too. Since our own understanding of the code is the real bottleneck to making changes, and making changes is the means by which we deliver more value to the business, this is truly valuable!</p>
+<p>I'd love to go into more detail on those four points above, but we'll have to save that for another time. </p>
+<!--
+Oh, and in case you want to get started on your own Scala+JavaFX app for desktop and mobile, [here's how](/scala-javafx-desktop-android-ios)
+-->                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title>What the AI Field of CSPs Teaches You about Engineering Software</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="In AI search algorithms, one of the biggest challenges is creating an algorithm that reduces the amount of time spent searching. Search algorithms..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">joelbecker.net</a></h1>
+                <nav><ul>
+                    <li><a href="/category/life.html">life</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">music</a></li>
+                    <li class="active"><a href="/category/tech.html">tech</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/what-the-ai-field-of-csps-teaches-you-about-engineering-software.html" rel="bookmark"
+           title="Permalink to What the AI Field of CSPs Teaches You about Engineering Software">What the AI Field of CSPs Teaches You about Engineering Software</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-09-30T00:00:00-07:00">
+                Published: Fri 30 September 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/joel-becker.html">Joel Becker</a>
+        </address>
+<p>In <a href="/category/tech.html">tech</a>.</p>
+
+</footer><!-- /.post-info -->      <p><img alt="Max Headroom" src="/images/max-headroom-dvd.jpg?classes=float-left"></p>
+<p>In AI search algorithms, one of the biggest challenges is creating an algorithm that reduces the amount of time spent searching. Search algorithms are navigating a search space that is too large for brute force search (...else we wouldn't need the AI). By nature, in order to accomplish this, we must search only a fraction of the space. The reciprocating challenge to that of course is to search the <em>right</em> fraction so as not to miss an optimal solution. Most of these search spaces are multi-dimensional. That is, they have more than one variable that must be tweaked, often a multitude of them, the combination of which creates an output. In a constraint satisfaction problem (CSP), this output must meet specific requirements in order to be a satisfactory solution. For a CSP, one of the most common techniques in reducing the search time is to search the <em>most constraining variables first</em>, called appropriately the "most constraining variable first" heuristic. (If only all names were that self-explanatory...)    </p>
+<p>As a software developer, what I find is that that same heuristic can be applied directly to engineering software, particularly in the case where it is difficult to foresee the correct engineering solution. I'm experiencing this now while building (with a recursive irony) an AI. And we're not even talking a Max Headroom AI. Just a search problem that requires more than, well, non-AI (though there's that annoying philosophical question of where to draw the line between the two...). When designing and coding a solution, there are some engineering needs that are easy to foresee, and consequently it is easy to design a solution immediately that will not need much alteration in the future. But in complex cases as we're discussing here, there are also those needs that are practically impossible to foresee until you start solving it. Often even a typical engineering problem can feel this way. In those cases you find yourself molding, refactoring, sometimes even rewriting the solution as you work through it. Partway into it, you realize a new constraint you did not see before, which requires some rethinking and rework.</p>
+<p>Now suppose you also solve the easy solutions along with these, as we might do by default. Sometimes the new realizations will require not only a change in the complex solutions, but also the changes break the expectations of the easy components. You end up building a roof on a house whose floor plan is being reconsidered. Just wait for the floor plan to solidify. Now we start to see that ideally we <em>first solidify the solutions that are most difficulty to foresee, then create and integrate with the simple problems</em>. This might also relate to the good managing principle of mitigating scheduling risk by addressing the biggest unknowns first. But I think the "most constraining variables first" heuristic applies even better. It's not that we don't end up finding the solution without it. We do. Eventually. But we can limit the search to a smaller fraction of the space by applying it.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

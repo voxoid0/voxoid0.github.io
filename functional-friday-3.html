@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title>Functional Friday 3: Reverse the Reversing</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="!yadirF lanoitcnuF...s'tI Today I'll use a slide from a presentation I gave to the Omaha Java User's Group Tuesday night, "Graph Theory in..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">joelbecker.net</a></h1>
+                <nav><ul>
+                    <li><a href="/category/life.html">life</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">music</a></li>
+                    <li class="active"><a href="/category/tech.html">tech</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/functional-friday-3.html" rel="bookmark"
+           title="Permalink to Functional Friday 3: Reverse the Reversing">Functional Friday 3: Reverse the Reversing</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-06-29T00:00:00-07:00">
+                Published: Fri 29 June 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/joel-becker.html">Joel Becker</a>
+        </address>
+<p>In <a href="/category/tech.html">tech</a>.</p>
+
+</footer><!-- /.post-info -->      <p><img alt="Excited" src="/images/excited-will-ferrell.gif?classes=float-left"></p>
+<p>!yadirF lanoitcnuF...s'tI</p>
+<p>Today I'll use a slide from a presentation I gave to the Omaha Java User's Group Tuesday night, "Graph Theory in Software Design". </p>
+<p><img alt="Imparative Code Graph Analysis" src="/images/modeling-code-understanding.png"></p>
+<p>This piece if code decides if a word is typed with left hand only using standard touch typing technique, or if it a "boring" word (the full code checks right hand only, and alternating hands). Think about <em>imperative</em> code: code that runs step-by-step, changing memory as it goes. While FP principles came before the modern computer, most of our programming on computers has been imperative code, and I believe this is because this is exactly how CPU and RAM work. But if you take the process of the reading the code line by line, and put it in slow-mo, you realize that understanding the <em>function</em> and the <em>purpose</em> of each line of code is quite taxing. The slide shows a line between all lines/statements of code that depend upon each other for understanding, and therefore must also be stored in the reader's memory while gathering enough information to understand.</p>
+<p>Now with a full understanding of that code, how would you explain what it does? Probably something like "If all of the words' characters are LEFT_HAND characters, return LEFT, otherwise return BORING." Now take the functional version of the code (Scala in this example):</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="ss">(</span><span class="nv">word</span>.<span class="nv">forall</span><span class="ss">(</span><span class="nv">LeftChars</span>.<span class="nv">contains</span><span class="ss">)</span> <span class="nv">Hand</span>.<span class="nv">Left</span>
+<span class="k">else</span> <span class="nv">Hand</span>.<span class="nv">Boring</span>
+</code></pre></div>
+
+<p>Which one is more like plain English? And which pieces of the code create questions the reader must hold onto until the rest of the code is read? Not much; in fact not really any! Of course in C# we would use LINQ and have virtually the same benefits, but before LINQ, and in Java before the "Stream API", only an imperative approach was possible.</p>
+<p>Conclusion? Imperative code is <em>backwards</em>!</p>
+<p>In fact, the next time you're reading an imperative function, a good tip is to start at the return statement and read backwards from there; it's usually much more efficient, unless there are side effects you're having to track as well.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

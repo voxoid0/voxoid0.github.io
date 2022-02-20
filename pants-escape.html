@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title>Pants' Escape</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="The other day I discovered js-dos, a port of DosBox to javascript! It does require a keyboard, so I don't know of a way to make it work in mobile..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">joelbecker.net</a></h1>
+                <nav><ul>
+                    <li><a href="/category/life.html">life</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">music</a></li>
+                    <li class="active"><a href="/category/tech.html">tech</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/pants-escape.html" rel="bookmark"
+           title="Permalink to Pants' Escape">Pants' Escape</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-10-14T17:15:00-07:00">
+                Published: Sat 14 October 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/joel-becker.html">Joel Becker</a>
+        </address>
+<p>In <a href="/category/tech.html">tech</a>.</p>
+
+</footer><!-- /.post-info -->      <p><img alt="Pants' Escape - Title Screen" src="/images/pants-escape-title.png?classes=float-right"></p>
+<p>The other day I discovered <a href="http://js-dos.com">js-dos</a>, a port of <a href="https://www.dosbox.com/">DosBox</a> to javascript! It does require a keyboard, so I don't know of a way to make it work in mobile browsers ...though I haven't tried connecting a keyboard to my phone to use it, but sounds a bit overkill.</p>
+<p>Anyway, so what is the best use of DOS in a web browser? Well playing old DOS games, of course! So here's a throwback to my DOS programming days - my last DOS game: <em>Pants' Escape</em>. Tell me how far you got in the comments section! (And especially if you find the big secret...)</p>
+<div>
+    <style type="text/css" scoped>
+        .dosbox-container { width: 640px; height: 400px; }
+    </style>
+<div id="pants" class="dosbox-default"></div>
+<br/>
+<button onclick="theDosBox.requestFullScreen();">Make fullscreen</button>
+
+<script type="text/javascript" src="https://js-dos.com/cdn/js-dos-api.js"></script>
+<script type="text/javascript">
+    var theDosBox = new Dosbox({
+    id: "pants",
+    onload: function (dosbox) {
+        dosbox.run("http://localhost:800/other/dos/pants-escape.zip", "./PANTS.EXE");
+        /* dosbox.run("http://localhost:800/other/dos/digger.zip", "./DIGGER.COM"); */
+    },
+    onrun: function (dosbox, app) {
+        console.log("App '" + app + "' is run");
+    }
+    });
+</script>
+</div>
+
+<p>...In case you notice the copyright on it, yes I programmed a DOS game in 2001. But it was my <em>last</em> one, I promise!</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

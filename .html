@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title></title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="security error Error Agreeing to the Xcode/iOS license requires admin privileges, please run "sudo xcodebuild -license" and then retry this..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">joelbecker.net</a></h1>
+                <nav><ul>
+                    <li><a href="/category/life.html">life</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">music</a></li>
+                    <li class="active"><a href="/category/tech.html">tech</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/.html" rel="bookmark"
+           title="Permalink to "></a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-10-01T16:30:00-07:00">
+                Published: Sun 01 October 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/joel-becker.html">Joel Becker</a>
+        </address>
+<p>In <a href="/category/tech.html">tech</a>.</p>
+
+</footer><!-- /.post-info -->      <p><img alt="Level 2" src="/images/level2.png?classes=float-right"></p>
+<h2>security error</h2>
+<h2>Error</h2>
+<p><code>Agreeing to the Xcode/iOS license requires admin privileges, please run "sudo xcodebuild -license" and then retry this command.</code></p>
+<p>If you're in a hurry like I was, you may see 'admin privileges' and 'sudo', and immediately try "sudo ./gradlew ...", which may work but will re-download all of your dependencies into root's gradle dependencies folder (/var/.m2), including gradle itself. It didn't work for me; this could have been because I also have a manually-installed dependency that doesn't exist in any of the maven or gradle repositories online.</p>
+<p>You're getting this message because you haven't agreed to Apple's terms regarding your certificates/codesign, so just do that real quick, and then gradle should be able to invoke codesign for you after that. Run <code>sudo xcodebuild -license</code> like it says, scroll through pages upon pages of stuff you probably won't read, and enter <code>agree</code> at the end.</p>
+<p><code>./gradlew createApp codeSign createDmg</code></p>
+<p><code>codesign -s 'Developer ID Application: Joel Becker' app/build/distributions/Percebe\ 1.2.5.dmg</code></p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

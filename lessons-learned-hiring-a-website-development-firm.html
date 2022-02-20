@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title>Lessons Learned Hiring a Website Development Firm</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="With needing to get our first release out fast, it seemed like a good use of our money to outsource the web development, so that all of the user..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">joelbecker.net</a></h1>
+                <nav><ul>
+                    <li><a href="/category/life.html">life</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">music</a></li>
+                    <li class="active"><a href="/category/tech.html">tech</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/lessons-learned-hiring-a-website-development-firm.html" rel="bookmark"
+           title="Permalink to Lessons Learned Hiring a Website Development Firm">Lessons Learned Hiring a Website Development Firm</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-10-24T00:00:00-07:00">
+                Published: Mon 24 October 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/joel-becker.html">Joel Becker</a>
+        </address>
+<p>In <a href="/category/tech.html">tech</a>.</p>
+
+</footer><!-- /.post-info -->      <p><img alt="Bowling gutter ball" src="/images/bowling-gutter.gif?classes=float-left"></p>
+<p>With needing to get our first release out fast, it seemed like a good use of our money to outsource the web development, so that all of the user account management and subscription payments would be taken care of in parallel with my building the app. I still think it was a good <em>idea</em>, but as "my" online start-up course professor form Harvard said a few years ago, "It's not so much about the idea [i-dee-er], it is about <em>execution</em>." Yes, even outsourcing requires successful execution, and after using up that part of our money to get less than we expected almost two months later than we expected, boy can I prove that. Here's how to outsource successfully.</p>
+<h3>Find a firm that you can trust</h3>
+<p>You're going to be giving these people a lot of money, to produce your company's Web presence, often your potential customers' first impression of your company and its products or services. You have to find someone you can trust with all of this, so that you can rest at night, and get what you need for a fair price. Probably the best way to find such a firm is to get get a recommendation from someone you already trust, or from someone who has worked with them and would not have any conflict of interest in warning you about them not being so great. Or else you can find them on a site with reviews from other clients, kind of like upwork.com (but that's more for small freelance jobs). Even after all of that there's no guarantee they'll do a good job or give a fair price, but at least your chances are much better than just going off of their own inflated advertisements.</p>
+<p>In our case I think we did find a company (actually a set of cooperating companies) that we can trust. My business partner found a firm in his home country of Brazil, that was recommended by a trusted friend. But we failed elsewhere...  </p>
+<h3>Design your website thoroughly, <em>before</em> telling them what you need</h3>
+<p>...Yeah, like right there. I'm not talking about graphic design or look&amp;feel. Just all of the text and functionality. Everything that the visitors can see and do, and especially the “do” part. Of course, if marketing experts will help you with the text then that's even better, but you'll need to tell them all of the aspects of your product's value, and run by them the ideas you've had that you might miss later. After all, you've been thinking about your product longer and more deeply than they will). </p>
+<p>They’re going to give you a quote based on what they believe you need, whether that’s the same as what <em>you</em> believe you need or not. You must accurately communicate <em>everything</em> that you need: pages, text, payment methods, one-time purchases vs subscriptions, user account management, etc. Otherwise they're going to say, "You didn't pay for that. You no pay, we no do." Or, "Sure, that's just $$$ more, and NNN more weeks." </p>
+<p>Design it all, document it all. Designing it forces you to think of all those big needs hiding in the corners of your website, that can be included in your quote <em>and</em> in the schedule.</p>
+<p>I thought I could just hand all of the design over to the firm's expertise in marketing and handling e-commerce (I thought). The very reason we hired them is so that I, our one-man development/QA/tech-support team, would have enough time to finish the features we needed in the app. But you just can’t leave this to the firm. You must determine everything that you need, in minute detail, even if their expertise with change it (which should be welcomed), and send them a document.</p>
+<h3>Don’t leave it to your business partner alone to tell them everything the website needs.</h3>
+<p>If only one person will be able to tell them what is needed, he should create a document and share it with you. You need to check this document thoroughly. It is hard for one guy to think of everything, especially if you are integrating an app with the web site and he is not technical. That starts to become just mean. (Sorry, partner.) Oh, and you still need to design the whole website, so that you won’t miss anything when checking the document. Better yet, collaborate face-to-face on the document (using a cloud document collaboration service like Google Drive). It will be worth your scarce time, else it will be scarcer.</p>
+<h3>Give them your requirements in writing. <em>RYE-TEENG</em>.</h3>
+<p>Don’t tell them verbally, and don’t let them take the notes. You make the requirements document. This is part of the contract agreement between you and the firm: exactly what they will do for whatever price you both agree on. Nuff sed.</p>
+<h3>Know what platform they will be using, and what <em>version</em> of the platform</h3>
+<p>For example, Magento 1.9 running on Apache server on Linux. Check if the platform supports all of the functionality that you need. If someone in your company will be administering the account, make sure the admin panel is user friendly and sufficient. Confirm if you will need any extensions or modules, and how much they cost. </p>
+<p>I did ask the firm we were hiring which platform they would use, went and analyzed integrating the app with the available REST API, then later realized that while I had analyzed the docs for the latest version (2.1.2), they were actually using a 1.9.x version from a couple years before, which did not have the same API available. Woopsie-daisy. (And by then it would have just made everything too much later to ask them to migrate.)</p>
+<p>Also find out how the hosting will work. Are they going to host it for you on AWS or some other hosting service? What are the reasons for their hosting recommendation? When will you take over the administration of the hosting account? Is the hosting cost included in the quote? (I kind of prefer for it not to be, since it is something your company is going to pay for indefinitely, whereas the initial website development is a one-time cost.) Know the platform; the platform is going to be your co-worker.</p>
+<h3>If you have an app that will integrate with the website, work out all of the details with them</h3>
+<p>Have your application developer(s) do a thorough analysis, even with some prototyping as needed, and list all requirements for both sides of the integration. Work out the details with the firm's development team -- with their <em>technical</em> people. And your lead developer <em>must</em> be in that meeting (he wants to be, trust me).</p>
+<h3>Make sure they know how to do, and <em>do</em> do, everything you need them to do</h3>
+<p>If you need them to be able to implement custom work flow or logic, make sure they are programmers, not just website builders. Interview one of the team members that will be doing the project, having a list of questions whose answers will give you a definite yes or no. Make sure they follow industry practices: they test on a private server before publishing to the Internet, they use source control, they'll set up HTTPS on your sight to protect your customers' <a href="https://en.wikipedia.org/wiki/Personally_identifiable_information">PPI</a>. Also I think "responsive" should go in the industry practice by now: they should use or create a responsive design so mobile users aren't turned off or turned away from your site (unless you don't need mobile users at all...somehow).</p>
+<h3>Require them to test on private servers, and give you a copy to test on local servers if needed, before publishing to the Internet</h3>
+<p>I thought that it was standard practice to complete a web site or app and test it thoroughly before publishing it to the public Internet. Nope. Don’t assume what may seem obvious to you. Go ahead and be the annoying cab rider who asks the driver, "OK before we go, you stop at red lights and go at green lights, right?" Web development teams will be lazy if they can get away with it, especially when money and deadline is involved.   </p>
+<h3>Agree on definite deadlines, exactly what will be delivered, and how.</h3>
+<p>This seems so obvious…yet we didn’t execute it. The early-September deadline turned into a “first delivery”, and that with neither a definition of what that meant, nor an estimate on when the real thing would be done. This can crumble your own business’s deadlines rather quickly! These are the kinds of risks one takes when relying on third parties. Don’t be a victim of your own lack of thoroughness and precision in terms and conditions up front. And leave yourself plenty of padding: start it all early enough so that the timefrom their deadline to yours is enough for what you need to do between there <em>plus</em> four weeks or whatever. Don't expect their projected finish date to be accurate by any means; it's not worth the risk. </p>
+<p>Also, know what they'll be delivering: Just files and database out on a public web server? A source-controlled set of files that can be installed and tested on your own Apache server?</p>
+<h3>They speak the same language as everyone on your team</h3>
+<p>You need precise communication, and Google translate just isn’t good enough for that. Because they didn't speak good English, and I speak absolutely no Portuguese, I could hardly participate in the meetings, some of which were critical for me to be a part of...like the initial one, and all of the technical ones.</p>
+<p>There is just too much interaction necessary, more than you realize at the beginning, for there to be any need to go through a translator on your team that speaks both languages.
+If they speak English (or whatever your primary language is) but it is not their primary language, ask yourself, "When I speak with them, am I having to often ask them to explain what they're saying? Or constantly needing them to repeat? Do they get what I say the first time? Can they repeat it back accurately?"</p>
+<p>Probably the biggest factor was, to my surprise, the language barrier. I did not realize how big of a problem this would be. My mistake was way back when I accepted the decision to go with a firm at which our main contacts did not speak English sufficiently. (Nothing whatsoever against a language or country of course; if my primary language were Shona, then that would be my requirement. ...Albeit it would be much harder to find such a firm...)</p>
+<h2>Conclusion</h2>
+<p>I could try to point the finger and say they didn't deliver the way they said they would, or they didn't warn us of the deadlines and what we'd be getting. But that wouldn't be balanced, and it wouldn't allow me to learn anything to do better next time. Fact is, we could have prevented all of the major problems we experienced with hiring the web firm. There's nothing wrong with them not being able to program or handle subscription products, or even not following industry practices. Not all companies have the same skill set, nor use the same methods. You are the company with the need; make sure they understand that need, and can provide it all, on time.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

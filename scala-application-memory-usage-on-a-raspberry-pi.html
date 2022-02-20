@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title>Scala Application Memory Usage on a Raspberry Pi</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="My current project requires some complex software on the Raspberry Pi 3 B+, which has 1GB of RAM. For my technology stack's primary components,..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">joelbecker.net</a></h1>
+                <nav><ul>
+                    <li><a href="/category/life.html">life</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">music</a></li>
+                    <li class="active"><a href="/category/tech.html">tech</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/scala-application-memory-usage-on-a-raspberry-pi.html" rel="bookmark"
+           title="Permalink to Scala Application Memory Usage on a Raspberry Pi">Scala Application Memory Usage on a Raspberry Pi</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-12-04T00:00:00-08:00">
+                Published: Tue 04 December 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/joel-becker.html">Joel Becker</a>
+        </address>
+<p>In <a href="/category/tech.html">tech</a>.</p>
+
+</footer><!-- /.post-info -->      <p>My current project requires some complex software on the Raspberry Pi 3 B+, which has 1GB of RAM. For my technology stack's primary components, I've chosen Scala, OpenCV, and TensorFlow. Typically C++ or python is used with OpenCV or TensorFlow. However,</p>
+<ol>
+<li>C++ is low level, and I've been sorry one too many times for choosing it (I know there can be plenty of discussion there around e.g. C++14, but that's for another day).</li>
+<li>I would need a significant refresher and update on the latest C++ language standards, boost libraries, and libraries for HTTP, high-level concurrency, etc.</li>
+<li>While I've used Python, I'm no master of it, and while I could become one, I've already taken on way too many "masteries"; it's time to limit my learning in favor of more productivity, when within reason; there will always be plenty of learning to do on other fronts in technology and software development.</li>
+<li>Python isn't the quickest slitherer among languages and platforms anyway, and yes slitherer is a real word, because I just used it. (...I don't actually agree with that philosophy, but sometimes we adopt a way of thinking for immediate convenience rather than truth, don't we? An oh-so-subconscious technique to be avoided in weightier matters.)</li>
+</ol>
+<p>Scala provides a high-level language and platform, concise code that can be quickly changed and maintained, and the benefits of both the functional and OO paradigms. (That's right, I'm not a functional purists, though I use OO almost solely for data objects and for organization of functions). And equally important, I'm already seasoned in its ecosystem.</p>
+<p><em>However</em>, especially in a large project, project risks must be mitigated <em>up front</em>, else you pay big ouchies later when you've already invested precious time and resources into a decision that won't work, or that turns out to be significantly more costly than an alternative. </p>
+<p>This application will be using computer vision and machine learning, but potentially memory-intensive. So one of the first risks to shoot down is if a scala application, <em>with</em> its dependencies, would </p>
+<p>scala app, no additional dependencies (21MB / 2.4% RAM, 5.6MB on disk): </p>
+<p>scala app with dependencies (31MB / 3.4% RAM, 12.4MB on disk):</p>
+<p>On my Windows desktop, the same scala app-with-no-dependencies used 862MB of RAM! That the scala app with large dependencies takes only 31MB of RAM is great news. 3.4% is a significant price, but worth the increased speed and ease of development with scala instead of C++. If I need to free up RAM e.g. for a large CNN, I can free it up other ways. Look at the other processes for example:</p>
+<p>Xorg, the Raspbian/Debian/Linx X Windows gui process, takes 6%/54MB, so using command-line-only Linux gets rid of that. Using SSH instead of VNC during development would free up another 1.6%/11MB or so if necessary. That's about all we can eliminate from the processes though; that 30MB is very large compared to the other processes. But even with a C++ app, the majority of our application's RAM will be used by CNN(s) and image processing, both of which can be tweaked for memory usage. I don't see any need to sacrifice scala or JVM over memory usage.</p>
+<p>The dependencies I added were:
+scala-library:2.11.8
+akka-actor
+slf4j-api, slf4j-log4j
+commons-io
+commons-codec
+xstream
+joda-time
+com.google.code.gson
+org.apache.httpcomponents: 4.1</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
