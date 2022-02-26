@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title>Functional Friday 4: Option, SelectMany, and why C#'s coming nullable reference type is totally _meh_</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="It's...Functional Friday! :party-parrot: Option, SelectMany, and why C#'s coming nullable reference type is totally meh null has been called "the..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">joelbecker.net</a></h1>
+                <nav><ul>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">music</a></li>
+                    <li class="active"><a href="/category/tech.html">tech</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/functional-friday-4.html" rel="bookmark"
+           title="Permalink to Functional Friday 4: Option, SelectMany, and why C#'s coming nullable reference type is totally _meh_">Functional Friday 4: Option, SelectMany, and why C#'s coming nullable reference type is totally _meh_</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-07-27T00:00:00-07:00">
+                Published: Fri 27 July 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/joel-becker.html">Joel Becker</a>
+        </address>
+<p>In <a href="/category/tech.html">tech</a>.</p>
+
+</footer><!-- /.post-info -->      <p><img alt="Excited" src="/images/excited-will-ferrell.gif?classes=float-right"></p>
+<p>It's...<em>Functional Friday!</em> :party-parrot:</p>
+<p><em>Option, SelectMany, and why C#'s coming nullable reference type is totally <em>meh</em></em></p>
+<p><code>null</code> has been called "the billion dollar mistake" (and many say that estimate is low) because of all of the bugs caused by unhandled <code>null</code> values. Is there an alternative for a variable that may or may not have a value? In a sense no, but what we <em>should</em> have been doing is always being <em>explicit</em> about whether a variable, field, functional return value, etc., is optional or not. If an expression must always have a value, it should not be nullable. However C# references can always be nullable! Same for Java and many other languages. We haven't been explicit. It's like having a piece of dynamically-typed languages mixed in with our static typing.</p>
+<p>That's why many languages, functional in particular, <em>are</em> explicit, usually by providing a keyword or type (<code>option</code> in F#). An <code>option</code> in F#, Scala, and Java et al, can have either a value of None or Some(value). (Unfortunately for those particular languages listed, they still have to support <code>null</code> for backwards compatibility. But good practice avoids <code>null</code> completely. I've done it, and it pays!) So instead of:</p>
+<p><code>Food FindFavoriteFood(int personId)</code></p>
+<p>with the potential of a caller assuming everyone will have a favorite:</p>
+<p><code>Console.WriteLine(FindFavoriteFood(123).Name)</code></p>
+<p>we can use <code>option</code>, and in C# there are several libraries providing such a type. I use nuget package <code>Option</code> from https://github.com/nlkl/Optional:</p>
+<p><code>Option&lt;Food&gt; FindFavoriteFood(int personId)</code></p>
+<p>Now the caller must handle both the None and the Some case. We could use an if/else to check if a value is there, but the more functional way (as an expression rather than imperative) would be to use <em>pattern matching</em>, also emulated by that library with <code>Option</code>'s <code>Match</code> method:</p>
+<p><code>Console.WriteLine(FindFavoriteFood(123).Match(
+    some: food =&gt; food.Name,
+    none: () =&gt; "I don't have a favorite"))</code></p>
+<p>(Not C#'s pattern matching in this case, but still FP's pattern matching nonetheless.) Now, C#'s coming nullable reference type where you can turn on disallowing null on regular references, <em>kinda</em> solves the problem also. But here's what it's missing that other languages with <code>option</code> provide: <code>Option</code> is IEnumerable. It will have either 0 or 1 elements. That in combination with <code>SelectMany</code> allows some :</p>
+<p><code>var allFavorites = allPersonIds.SelectMany(FindFavoriteFood))</code></p>
+<p>Catch that? For anyone without a favorite, FindFavoriteFood returns an <code>Option</code> of case <code>None</code> which is an <code>IEnumerable</code> of length 0, whereas those with favorites will be a <code>Some</code> or <code>IEnumerable</code> of length 1, so stream them all together with <code>SelectMany</code> and you get all favorites.</p>
+<p>These reasons are why my team at Farm Credit started using <code>Option</code> everywhere a value is optional!</p>
+<p>Unfortunately C#'s coming non-nullable/nullable reference types doesn't provide enumeration. Meh.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

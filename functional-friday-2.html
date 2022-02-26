@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title>Functional Friday 2: C# Zip and Skip</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="It's…Functional Friday! So how would you write a function that, given a list of train cars, returns the food cars which are directly behind a..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">joelbecker.net</a></h1>
+                <nav><ul>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">music</a></li>
+                    <li class="active"><a href="/category/tech.html">tech</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/functional-friday-2.html" rel="bookmark"
+           title="Permalink to Functional Friday 2: C# Zip and Skip">Functional Friday 2: C# Zip and Skip</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-06-08T00:00:00-07:00">
+                Published: Fri 08 June 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/joel-becker.html">Joel Becker</a>
+        </address>
+<p>In <a href="/category/tech.html">tech</a>.</p>
+
+</footer><!-- /.post-info -->      <p><img alt="Excited" src="/images/excited-will-ferrell.gif?classes=float-left"></p>
+<p>It's…<strong>Functional Friday!</strong> </p>
+<p>So how would you write a function that, given a list of train cars, returns the food cars which are directly behind a hazmat car? (Maybe we don’t want to eat the food from ‘em.) At first we might try using LINQ, but then get stuck on how to compare each element with the next or previous one. So then we might go the <code>for</code> loop route. No! Icky! (You <em>do</em> already prefer LINQ over a <code>for</code> loop in a simple where/select scenario, right?) Wait, there’s still hope: Zip and Tail!</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">TrainCar</span><span class="p">&gt;</span><span class="w"> </span><span class="n">GetFoodCarsBehindHazmats</span><span class="p">(</span><span class="n">List</span><span class="p">&lt;</span><span class="n">TrainCar</span><span class="p">&gt;</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">input</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">Zip</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">Skip</span><span class="p">(</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">prev</span><span class="p">,</span><span class="w"> </span><span class="n">next</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">prev</span><span class="p">,</span><span class="w"> </span><span class="n">next</span><span class="p">))</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">pair</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="n">pair</span><span class="p">.</span><span class="n">Item1</span><span class="p">.</span><span class="n">IsFood</span><span class="w"> </span><span class="p">&amp;&amp;</span><span class="w"> </span><span class="n">pair</span><span class="p">.</span><span class="n">Item2</span><span class="p">.</span><span class="n">IsHazmat</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">pair</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="n">pair</span><span class="p">.</span><span class="n">Item1</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+<p>Zip “zips” two collections together, according to the function you give it. So in our case we’re saying to create a tuple of two train cars. Any FP-focused language such as F# has a <code>Tail</code> method on a collection that returns all elements past the first. LINQ’s <code>Tail</code> equivalent is <code>Skip(1)</code>, so if you start adopting some FP in C# (you'll be happier!), <code>Skip(1)</code> will be your friend. Also, FP languages’ “zip” function by default creates a tuple, but in C# we must specify explicitly. So by zipping a collection with its tail, each element has a train car and the train car after it.</p>
+<p>This type of scenario does come up in real applications quite often, e.g. if you need to assume that a list is in a certain order (and you aren’t going to sort it for the caller every time), assert it on your ctor or function parameter! Cool?</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
