@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>Scala + JavaFX: The Killer Duo for Multi-Platform Development</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+<link href="https://joelbecker.net/2016/03/scala-javafx-the-killer-duo-for-multi-platform-development.html" rel="canonical" />
+  <!-- Feed -->
+
+  <link href="https://joelbecker.net/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="https://joelbecker.net/theme/css/code_blocks/github.css" rel="stylesheet">
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+    <meta name="keywords" content="s" >
+    <meta name="keywords" content="c" >
+    <meta name="keywords" content="a" >
+    <meta name="keywords" content="l" >
+    <meta name="keywords" content="a" >
+    <meta name="keywords" content="," >
+    <meta name="keywords" content="j" >
+    <meta name="keywords" content="a" >
+    <meta name="keywords" content="v" >
+    <meta name="keywords" content="a" >
+    <meta name="keywords" content="f" >
+    <meta name="keywords" content="x" >
+    <meta name="keywords" content="," >
+    <meta name="keywords" content="c" >
+    <meta name="keywords" content="r" >
+    <meta name="keywords" content="o" >
+    <meta name="keywords" content="s" >
+    <meta name="keywords" content="s" >
+    <meta name="keywords" content="-" >
+    <meta name="keywords" content="p" >
+    <meta name="keywords" content="l" >
+    <meta name="keywords" content="a" >
+    <meta name="keywords" content="t" >
+    <meta name="keywords" content="f" >
+    <meta name="keywords" content="o" >
+    <meta name="keywords" content="r" >
+    <meta name="keywords" content="m" >
+    <meta name="keywords" content="," >
+    <meta name="keywords" content="m" >
+    <meta name="keywords" content="o" >
+    <meta name="keywords" content="b" >
+    <meta name="keywords" content="i" >
+    <meta name="keywords" content="l" >
+    <meta name="keywords" content="e" >
+    <meta name="keywords" content="," >
+    <meta name="keywords" content="a" >
+    <meta name="keywords" content="n" >
+    <meta name="keywords" content="d" >
+    <meta name="keywords" content="r" >
+    <meta name="keywords" content="o" >
+    <meta name="keywords" content="i" >
+    <meta name="keywords" content="d" >
+    <meta name="keywords" content="," >
+    <meta name="keywords" content="i" >
+    <meta name="keywords" content="o" >
+    <meta name="keywords" content="s" >
+    <meta name="keywords" content="," >
+    <meta name="keywords" content="w" >
+    <meta name="keywords" content="i" >
+    <meta name="keywords" content="n" >
+    <meta name="keywords" content="d" >
+    <meta name="keywords" content="o" >
+    <meta name="keywords" content="w" >
+    <meta name="keywords" content="s" >
+    <meta name="keywords" content="," >
+    <meta name="keywords" content="m" >
+    <meta name="keywords" content="a" >
+    <meta name="keywords" content="c" >
+    <meta name="keywords" content=" " >
+    <meta name="keywords" content="o" >
+    <meta name="keywords" content="s" >
+    <meta name="keywords" content=" " >
+    <meta name="keywords" content="x" >
+    <meta name="keywords" content="," >
+    <meta name="keywords" content="o" >
+    <meta name="keywords" content="s" >
+    <meta name="keywords" content=" " >
+    <meta name="keywords" content="x" >
+
+    <meta name="description" content="...in my case at least. But likely for you too! Here's why. I'm building an application for our start-up company that is to run on four...">
+
+    <meta name="author" content="Joel Becker">
+
+    <meta name="tags" content="[scala">
+    <meta name="tags" content="javafx">
+    <meta name="tags" content="cross-platform">
+    <meta name="tags" content="mobile">
+    <meta name="tags" content="android">
+    <meta name="tags" content="ios">
+    <meta name="tags" content="windows">
+    <meta name="tags" content="os x">
+    <meta name="tags" content="startup">
+    <meta name="tags" content="productivity]">
+
+
+
+
+<!-- Open Graph -->
+<meta prefix="og: http://ogp.me/ns#" property="og:site_name" content="joelbecker.net"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:title" content="Scala + JavaFX: The Killer Duo for Multi-Platform Development"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:description" content="...in my case at least. But likely for you too! Here's why. I'm building an application for our start-up company that is to run on four..."/>
+<meta prefix="og: http://ogp.me/ns#" property="og:locale" content="en_US"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:url" content="https://joelbecker.net/2016/03/scala-javafx-the-killer-duo-for-multi-platform-development.html"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:type" content="article"/>
+<meta prefix="og: http://ogp.me/ns#" property="article:published_time" content="2016-03-10 00:00:00-08:00"/>
+<meta prefix="og: http://ogp.me/ns#" property="article:modified_time" content=""/>
+<meta prefix="og: http://ogp.me/ns#" property="article:author" content="https://joelbecker.net/author/joel-becker">
+<meta prefix="og: http://ogp.me/ns#" property="article:section" content="tech"/>
+<meta prefix="og: http://ogp.me/ns#" property="article:tag" content="[scala"/>
+<meta prefix="og: http://ogp.me/ns#" property="article:tag" content="javafx"/>
+<meta prefix="og: http://ogp.me/ns#" property="article:tag" content="cross-platform"/>
+<meta prefix="og: http://ogp.me/ns#" property="article:tag" content="mobile"/>
+<meta prefix="og: http://ogp.me/ns#" property="article:tag" content="android"/>
+<meta prefix="og: http://ogp.me/ns#" property="article:tag" content="ios"/>
+<meta prefix="og: http://ogp.me/ns#" property="article:tag" content="windows"/>
+<meta prefix="og: http://ogp.me/ns#" property="article:tag" content="os x"/>
+<meta prefix="og: http://ogp.me/ns#" property="article:tag" content="startup"/>
+<meta prefix="og: http://ogp.me/ns#" property="article:tag" content="productivity]"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:image" content="https://joelbecker.net/theme/images/post-bg.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "Scala + JavaFX: The Killer Duo for Multi-Platform Development",
+  "headline": "Scala + JavaFX: The Killer Duo for Multi-Platform Development",
+  "datePublished": "2016-03-10 00:00:00-08:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "Joel Becker",
+    "url": "https://joelbecker.net/author/joel-becker"
+  },
+  "image": "https://joelbecker.net/theme/images/post-bg.jpg",
+  "url": "https://joelbecker.net/2016/03/scala-javafx-the-killer-duo-for-multi-platform-development.html",
+  "description": "...in my case at least. But likely for you too! Here's why. I'm building an application for our start-up company that is to run on four..."
+}
+</script>
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" >
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="https://joelbecker.net/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">Scala + JavaFX: The Killer Duo for Multi-Platform Development</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="https://joelbecker.net/author/joel-becker">Joel Becker</a>
+            | <time datetime="Thu 10 March 2016">Thu 10 March 2016</time>
+        </span>
+        <!-- TODO : Modified check -->
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <p><img alt="Original Batman and Robin" src="/images/batman-and-robin.jpg?classes=float-right&amp;cropResize=320,240"></p>
+<p>...in my case at least. But likely for you too! Here's why.</p>
+<p>I'm building an application for our start-up company that is to run on four of the major desktop and mobile platforms: Windows, OS X, Android, and iOS. Also, being on a relatively small budget, our only developer is me, mua, solo, and yet time-to-market and speedy changing is key to our success.</p>
+<h2>JavaFX</h2>
+<p>JavaFX is one of the only decent UI frameworks that runs on all four platforms, allowing you to not only reuse non-UI code but the UI wiring and layouts as well! Granted you still need to meet the needs of different screen sizes and orientations. </p>
+<p>Honestly the biggest disadvantage I see is that you lose some of the native controls and look&amp;feel of each mobile platform. Ideally an app looks and feels native, giving the user a consistent experience across all of the apps on their device, and making the transition to your app seemless.</p>
+<p>But while most companies developing for these platforms find it necessary to have two or three different teams (desktop, Android, iOS), I'll gladly take the not-so-native penalty. If your app solves a real problem, and provides a good user experience, non-native can't stop your success. Getting to market too late, or reacting to change more slowly than your competitors do, can. And I believe JavaFX (with the JavaFXPorts project) is currently the best "write-once, run anywhere" solution available.</p>
+<h3>What about C# and Xamarin?</h3>
+<p>I'm also a C# programmer and love the language. I see a couple disadvantages in using <a href="https://xamarin.com/">Xamarin</a> for my kind of situation:</p>
+<ul>
+<li>Scala is better than C#</li>
+<li>What about F#? F# is in my opinion not quite as advantageous as Scala (I understand there can be a large discussion about pure functional versus letting OO in the language). But perhaps more importantly, F# doesn't have nearly the community that Scala has. That means that when I run into a snag with Scala, Google can find me the solution much more often. And once again that saves precious time.</li>
+<li>Xamarin is only for mobile, not desktop. So you'd still need some separate, non-Xamarin projects for desktop.</li>
+<li>Xamarin doesn't focus on a write-once-run-everywhere solution for UI. They encourage developing native UIs (which is great if you can afford it); so if you're going to ride on Xamarin you're probably going to want to create separate UIs for iOS, Android, and desktop.</li>
+<li>There <em>used to be</em> another advantage: cost. RoboVM, the technology which allows Java applications to run on iOS, was free up until the Fall of 2015, upon which it is only free to game developers using <a href="https://libgdx.badlogicgames.com/">libgdx</a>. It is now comparable in price to Xamarin: Xamarin Business is about $1000 per mobile platform, and RoboVM Business is $1500 for iOS (and you already have Android for free). Nevertheless, these figures are insignificant compared to the expense of developing software.</li>
+</ul>
+<h2>Scala</h2>
+<p>I used to think Scala would give me a competitive advantage. Now after using it for about a month to develop our application, I'm <em>completely convinced</em>!</p>
+<p>In a nutshell, while C# is way better than Java (yes even Java 8), Scala tops them both. (And I already gave my thoughts on F# above.) I didn't think going from Java and C# to Scala would be like the transition from C/C++ to Java, but now that I can fully wield the functional paradigm and Scala's idioms, it really is that dramatic of an improvement. Some of the biggest benefits from C++ to Java was:</p>
+<ol>
+<li>The JVM garbage collector. (C#'s run-time has it also.) Instead of using either the boost smart pointer library or the even more archaic malloc and free.</li>
+<li>Built-in collections and iterators. C++'s STL (Standard Template Library) provided these things as well, but with <em>very verbose and hard to read</em> semantics compared to the modern counterparts</li>
+<li>The platform libraries for all of your basic needs like File management, XML parsing, etc.</li>
+<li>Made to be cross-platform</li>
+</ol>
+<p>Now going from Java and C# to Scala, some of the biggest benefits I recognize so far -- realize I can list these, but it's hard (and was hard for me) to really grasp the magnitude of the benefits until you've actually applied them for a while on a real project:</p>
+<ol>
+<li>Functional paradigm, which just by itself provides many benefits. </li>
+<li>Higher-level collection operations, algorithms, and expressions. Some of these kinds of things, like map, foldLeft, filter, easy collection initializers etc., are being introduced more and more into Java (version 8) and C# (Linq), but are still behind Scala and not as elegant and terse.</li>
+<li>Compact code. This allows greater ability to make program changes and add features, because there's less to read and understand, more of it is expressed at a higher level, and there's not nearly as much boiler plate for things like class properties and constructors.</li>
+<li>An extra boost of energy from the excitement of using such a beneficial technology. You know how it is. ;)</li>
+</ol>
+<p>Functional programming is really a totally different way of thinking! I've found that writing functional code has been slower for me than writing procedural and object-oriented code. In fact a few times I was tempted to write some Scava (you know, Java-like Scala code -- don't do it! Turn back!) so that I could type code at full speed. But I've come to realize, not only am I getting faster at thinking functionally, but those 4 lines of code I took so long to write would have been 20 or 30 lines of Java and would have taken just as long, and then a lot longer later to come back to the code and understand it. Scala not only reduces lines of code, but consequently the number of classes and files too. Since our own understanding of the code is the real bottleneck to making changes, and making changes is the means by which we deliver more value to the business, this is truly valuable!</p>
+<p>I'd love to go into more detail on those four points above, but we'll have to save that for another time. </p>
+<!--
+Oh, and in case you want to get started on your own Scala+JavaFX app for desktop and mobile, [here's how](/scala-javafx-desktop-android-ios)
+-->
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=Scala + JavaFX: The Killer Duo for Multi-Platform Development&amp;url=https://joelbecker.net/2016/03/scala-javafx-the-killer-duo-for-multi-platform-development.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://joelbecker.net/2016/03/scala-javafx-the-killer-duo-for-multi-platform-development.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=https://joelbecker.net/2016/03/scala-javafx-the-killer-duo-for-multi-platform-development.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="https://joelbecker.net/tag/scala">[scala</a><a href="https://joelbecker.net/tag/javafx">javafx</a><a href="https://joelbecker.net/tag/cross-platform">cross-platform</a><a href="https://joelbecker.net/tag/mobile">mobile</a><a href="https://joelbecker.net/tag/android">android</a><a href="https://joelbecker.net/tag/ios">ios</a><a href="https://joelbecker.net/tag/windows">windows</a><a href="https://joelbecker.net/tag/os-x">os x</a><a href="https://joelbecker.net/tag/startup">startup</a><a href="https://joelbecker.net/tag/productivity">productivity]</a>                </aside>
+
+                <div class="clear"></div>
+
+
+                </section>
+
+                <script type="text/javascript">
+                    var disqus = 'joelbeckernet';
+                    var disqus_shortname = 'joelbeckernet';
+                    var disqus_identifier = '/2016/03/scala-javafx-the-killer-duo-for-multi-platform-development.html';
+                    var disqus_url = 'https://joelbecker.net/2016/03/scala-javafx-the-killer-duo-for-multi-platform-development.html';
+                </script>
+                <noscript>Please enable JavaScript to view the comments.</noscript>
+                <section class="post-comments">
+                        <a id="show-disqus" class="post-comments-activate" data-disqus-identifier="/2016/03/scala-javafx-the-killer-duo-for-multi-platform-development.html" >Show Comments</a>
+                    <div id="disqus_thread"></div>
+                </section>
+
+                <aside class="post-nav">
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://joelbecker.net/theme/js/script.js"></script>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-65596444-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-65596444-2', { 'anonymize_ip': true });
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'joelbeckernet';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

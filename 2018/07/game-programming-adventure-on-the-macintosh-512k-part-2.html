@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>Game Programming Adventure on the Macintosh 512k: Part 2</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+<link href="https://joelbecker.net/2018/07/game-programming-adventure-on-the-macintosh-512k-part-2.html" rel="canonical" />
+  <!-- Feed -->
+
+  <link href="https://joelbecker.net/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="https://joelbecker.net/theme/css/code_blocks/github.css" rel="stylesheet">
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+    <meta name="keywords" content="'" >
+    <meta name="keywords" content="g" >
+    <meta name="keywords" content="a" >
+    <meta name="keywords" content="m" >
+    <meta name="keywords" content="e" >
+    <meta name="keywords" content=" " >
+    <meta name="keywords" content="p" >
+    <meta name="keywords" content="r" >
+    <meta name="keywords" content="o" >
+    <meta name="keywords" content="g" >
+    <meta name="keywords" content="r" >
+    <meta name="keywords" content="a" >
+    <meta name="keywords" content="m" >
+    <meta name="keywords" content="m" >
+    <meta name="keywords" content="i" >
+    <meta name="keywords" content="n" >
+    <meta name="keywords" content="g" >
+    <meta name="keywords" content="," >
+    <meta name="keywords" content="r" >
+    <meta name="keywords" content="e" >
+    <meta name="keywords" content="t" >
+    <meta name="keywords" content="r" >
+    <meta name="keywords" content="o" >
+    <meta name="keywords" content="," >
+    <meta name="keywords" content="m" >
+    <meta name="keywords" content="a" >
+    <meta name="keywords" content="c" >
+    <meta name="keywords" content="i" >
+    <meta name="keywords" content="n" >
+    <meta name="keywords" content="t" >
+    <meta name="keywords" content="o" >
+    <meta name="keywords" content="s" >
+    <meta name="keywords" content="h" >
+    <meta name="keywords" content=" " >
+    <meta name="keywords" content="5" >
+    <meta name="keywords" content="1" >
+    <meta name="keywords" content="2" >
+    <meta name="keywords" content="k" >
+    <meta name="keywords" content="," >
+    <meta name="keywords" content="b" >
+    <meta name="keywords" content="a" >
+    <meta name="keywords" content="s" >
+    <meta name="keywords" content="i" >
+    <meta name="keywords" content="c" >
+    <meta name="keywords" content="," >
+    <meta name="keywords" content="q" >
+    <meta name="keywords" content="u" >
+    <meta name="keywords" content="i" >
+    <meta name="keywords" content="c" >
+    <meta name="keywords" content="k" >
+    <meta name="keywords" content="b" >
+    <meta name="keywords" content="a" >
+    <meta name="keywords" content="s" >
+    <meta name="keywords" content="i" >
+    <meta name="keywords" content="c" >
+    <meta name="keywords" content="," >
+    <meta name="keywords" content="m" >
+    <meta name="keywords" content="i" >
+    <meta name="keywords" content="c" >
+    <meta name="keywords" content="r" >
+    <meta name="keywords" content="o" >
+    <meta name="keywords" content="s" >
+    <meta name="keywords" content="o" >
+    <meta name="keywords" content="f" >
+    <meta name="keywords" content="t" >
+    <meta name="keywords" content=" " >
+    <meta name="keywords" content="b" >
+    <meta name="keywords" content="a" >
+    <meta name="keywords" content="s" >
+    <meta name="keywords" content="i" >
+    <meta name="keywords" content="c" >
+    <meta name="keywords" content="," >
+    <meta name="keywords" content="m" >
+    <meta name="keywords" content="a" >
+    <meta name="keywords" content="c" >
+    <meta name="keywords" content="i" >
+    <meta name="keywords" content="n" >
+    <meta name="keywords" content="t" >
+    <meta name="keywords" content="o" >
+    <meta name="keywords" content="s" >
+    <meta name="keywords" content="h" >
+    <meta name="keywords" content=" " >
+    <meta name="keywords" content="1" >
+    <meta name="keywords" content="2" >
+    <meta name="keywords" content="8" >
+    <meta name="keywords" content="k" >
+    <meta name="keywords" content="," >
+    <meta name="keywords" content="a" >
+    <meta name="keywords" content="p" >
+    <meta name="keywords" content="p" >
+    <meta name="keywords" content="l" >
+    <meta name="keywords" content="e" >
+    <meta name="keywords" content=" " >
+    <meta name="keywords" content="i" >
+    <meta name="keywords" content="i" >
+    <meta name="keywords" content="'" >
+
+    <meta name="description" content="Save the Cows: Official Release Here it is, the latest and greatest video game of 2018: Save the Cows VR version coming soon! No, there...">
+
+    <meta name="author" content="Joel Becker">
+
+
+
+
+
+<!-- Open Graph -->
+<meta prefix="og: http://ogp.me/ns#" property="og:site_name" content="joelbecker.net"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:title" content="Game Programming Adventure on the Macintosh 512k: Part 2"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:description" content="Save the Cows: Official Release Here it is, the latest and greatest video game of 2018: Save the Cows VR version coming soon! No, there..."/>
+<meta prefix="og: http://ogp.me/ns#" property="og:locale" content="en_US"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:url" content="https://joelbecker.net/2018/07/game-programming-adventure-on-the-macintosh-512k-part-2.html"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:type" content="article"/>
+<meta prefix="og: http://ogp.me/ns#" property="article:published_time" content="2018-07-21 07:30:00-07:00"/>
+<meta prefix="og: http://ogp.me/ns#" property="article:modified_time" content=""/>
+<meta prefix="og: http://ogp.me/ns#" property="article:author" content="https://joelbecker.net/author/joel-becker">
+<meta prefix="og: http://ogp.me/ns#" property="article:section" content="tech"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:image" content="https://joelbecker.net/theme/images/post-bg.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "Game Programming Adventure on the Macintosh 512k: Part 2",
+  "headline": "Game Programming Adventure on the Macintosh 512k: Part 2",
+  "datePublished": "2018-07-21 07:30:00-07:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "Joel Becker",
+    "url": "https://joelbecker.net/author/joel-becker"
+  },
+  "image": "https://joelbecker.net/theme/images/post-bg.jpg",
+  "url": "https://joelbecker.net/2018/07/game-programming-adventure-on-the-macintosh-512k-part-2.html",
+  "description": "Save the Cows: Official Release Here it is, the latest and greatest video game of 2018: Save the Cows VR version coming soon! No, there..."
+}
+</script>
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" >
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="https://joelbecker.net/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">Game Programming Adventure on the Macintosh 512k: Part 2</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="https://joelbecker.net/author/joel-becker">Joel Becker</a>
+            | <time datetime="Sat 21 July 2018">Sat 21 July 2018</time>
+        </span>
+        <!-- TODO : Modified check -->
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <h2>Save the Cows: Official Release</h2>
+<p>Here it is, the latest and greatest video game of 2018: <em>Save the Cows</em>
+VR version coming soon!</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0Y56OwKnnj8?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<p>No, there will be no VR version. Ah yes, and the <a href="https://github.com/voxoid0/SaveTheCows-Mac512k">source code on github</a>.</p>
+<h2>How to create your own game or app for Macintosh 512k</h2>
+<ul>
+<li>First, you'll want to do your actual development and testing on an emulator. The best one (of the two available) in my opinion is by far Mini vMac.<ul>
+<li>Follow these really good (and necessary) <a href="https://www.emaculation.com/doku.php/mini_vmac_setup">Mini vMac setup instructions</a> </li>
+</ul>
+</li>
+<li>If you haven't already, downloaded System 4/Finder 6 ("System 5") software <a href="https://www.macintoshrepository.org/11477-mac-system-5-x">from here</a></li>
+<li>Then you need a development environment. I recommend <a href="http://macintoshgarden.org/apps/microsoft-basic">Microsoft QuickBasic 1.0</a>, the successor of Microsoft BASIC, with compiler included (which creates an actual app file from your code).</li>
+<li>Hopefully you've done some MS Basic programming in the past, because you'll need the familiarity against the lack of documentation. I couldn't find a manual for QuickBASIC for Mac anywhere. But it is very similar to Amiga BASIC and fairly similar to x86 QuickBASIC.<ul>
+<li><a href="https://computerarchive.org/files/comp/other/development/amiga-developement/Commodore_Amiga_Basic.pdf">Amiga BASIC manual</a></li>
+<li><a href="http://chiclassiccomp.org/docs/content/computing/Microsoft/Microsoft_Basic_8086Xenix_Reference.pdf">8086 Microsoft BASIC reference manual</a></li>
+</ul>
+</li>
+<li>You'll also need a <a href="https://www.gryphel.com/d/minivmac/extras/blanks/blanks-1.0.0.zip">blank floppy disk image</a> (choose the 400K one), and a <a href="https://www.emaculation.com/doku.php/hfvexplorer">good old Mac disk image editor</a></li>
+<li>The hardest part of all is getting your program onto an actual Macintosh 512k! Should you choose to accept this mission, I can only recommend buying the <a href="https://www.bigmessowires.com/floppy-emu/">Floppy Emu</a> from BigMessOWires.com for about $109 (it comes with the cable, by the way). Otherwise if you have an old Mac like a Power PC, you may be able to use a different transfer method, for which I hereby refer you to Google.</li>
+</ul>
+<p>For all 0 of you that actually do this, good luck and then congratulations! And please let me know if you do actually do it!</p>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=Game Programming Adventure on the Macintosh 512k: Part 2&amp;url=https://joelbecker.net/2018/07/game-programming-adventure-on-the-macintosh-512k-part-2.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://joelbecker.net/2018/07/game-programming-adventure-on-the-macintosh-512k-part-2.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=https://joelbecker.net/2018/07/game-programming-adventure-on-the-macintosh-512k-part-2.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+
+                <div class="clear"></div>
+
+
+                </section>
+
+                <script type="text/javascript">
+                    var disqus = 'joelbeckernet';
+                    var disqus_shortname = 'joelbeckernet';
+                    var disqus_identifier = '/2018/07/game-programming-adventure-on-the-macintosh-512k-part-2.html';
+                    var disqus_url = 'https://joelbecker.net/2018/07/game-programming-adventure-on-the-macintosh-512k-part-2.html';
+                </script>
+                <noscript>Please enable JavaScript to view the comments.</noscript>
+                <section class="post-comments">
+                        <a id="show-disqus" class="post-comments-activate" data-disqus-identifier="/2018/07/game-programming-adventure-on-the-macintosh-512k-part-2.html" >Show Comments</a>
+                    <div id="disqus_thread"></div>
+                </section>
+
+                <aside class="post-nav">
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://joelbecker.net/theme/js/script.js"></script>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-65596444-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-65596444-2', { 'anonymize_ip': true });
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'joelbeckernet';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

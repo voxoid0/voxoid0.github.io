@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>What the AI Field of CSPs Teaches You about Engineering Software</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+<link href="https://joelbecker.net/2016/09/what-the-ai-field-of-csps-teaches-you-about-engineering-software.html" rel="canonical" />
+  <!-- Feed -->
+
+  <link href="https://joelbecker.net/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="https://joelbecker.net/theme/css/code_blocks/github.css" rel="stylesheet">
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+
+    <meta name="description" content="In AI search algorithms, one of the biggest challenges is creating an algorithm that reduces the amount of time spent searching. Search...">
+
+    <meta name="author" content="Joel Becker">
+
+
+
+
+
+<!-- Open Graph -->
+<meta prefix="og: http://ogp.me/ns#" property="og:site_name" content="joelbecker.net"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:title" content="What the AI Field of CSPs Teaches You about Engineering Software"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:description" content="In AI search algorithms, one of the biggest challenges is creating an algorithm that reduces the amount of time spent searching. Search..."/>
+<meta prefix="og: http://ogp.me/ns#" property="og:locale" content="en_US"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:url" content="https://joelbecker.net/2016/09/what-the-ai-field-of-csps-teaches-you-about-engineering-software.html"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:type" content="article"/>
+<meta prefix="og: http://ogp.me/ns#" property="article:published_time" content="2016-09-30 00:00:00-07:00"/>
+<meta prefix="og: http://ogp.me/ns#" property="article:modified_time" content=""/>
+<meta prefix="og: http://ogp.me/ns#" property="article:author" content="https://joelbecker.net/author/joel-becker">
+<meta prefix="og: http://ogp.me/ns#" property="article:section" content="tech"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:image" content="https://joelbecker.net/theme/images/post-bg.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "What the AI Field of CSPs Teaches You about Engineering Software",
+  "headline": "What the AI Field of CSPs Teaches You about Engineering Software",
+  "datePublished": "2016-09-30 00:00:00-07:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "Joel Becker",
+    "url": "https://joelbecker.net/author/joel-becker"
+  },
+  "image": "https://joelbecker.net/theme/images/post-bg.jpg",
+  "url": "https://joelbecker.net/2016/09/what-the-ai-field-of-csps-teaches-you-about-engineering-software.html",
+  "description": "In AI search algorithms, one of the biggest challenges is creating an algorithm that reduces the amount of time spent searching. Search..."
+}
+</script>
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" >
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="https://joelbecker.net/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">What the AI Field of CSPs Teaches You about Engineering Software</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="https://joelbecker.net/author/joel-becker">Joel Becker</a>
+            | <time datetime="Fri 30 September 2016">Fri 30 September 2016</time>
+        </span>
+        <!-- TODO : Modified check -->
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <p><img alt="Max Headroom" src="/images/max-headroom-dvd.jpg?classes=float-left"></p>
+<p>In AI search algorithms, one of the biggest challenges is creating an algorithm that reduces the amount of time spent searching. Search algorithms are navigating a search space that is too large for brute force search (...else we wouldn't need the AI). By nature, in order to accomplish this, we must search only a fraction of the space. The reciprocating challenge to that of course is to search the <em>right</em> fraction so as not to miss an optimal solution. Most of these search spaces are multi-dimensional. That is, they have more than one variable that must be tweaked, often a multitude of them, the combination of which creates an output. In a constraint satisfaction problem (CSP), this output must meet specific requirements in order to be a satisfactory solution. For a CSP, one of the most common techniques in reducing the search time is to search the <em>most constraining variables first</em>, called appropriately the "most constraining variable first" heuristic. (If only all names were that self-explanatory...)    </p>
+<p>As a software developer, what I find is that that same heuristic can be applied directly to engineering software, particularly in the case where it is difficult to foresee the correct engineering solution. I'm experiencing this now while building (with a recursive irony) an AI. And we're not even talking a Max Headroom AI. Just a search problem that requires more than, well, non-AI (though there's that annoying philosophical question of where to draw the line between the two...). When designing and coding a solution, there are some engineering needs that are easy to foresee, and consequently it is easy to design a solution immediately that will not need much alteration in the future. But in complex cases as we're discussing here, there are also those needs that are practically impossible to foresee until you start solving it. Often even a typical engineering problem can feel this way. In those cases you find yourself molding, refactoring, sometimes even rewriting the solution as you work through it. Partway into it, you realize a new constraint you did not see before, which requires some rethinking and rework.</p>
+<p>Now suppose you also solve the easy solutions along with these, as we might do by default. Sometimes the new realizations will require not only a change in the complex solutions, but also the changes break the expectations of the easy components. You end up building a roof on a house whose floor plan is being reconsidered. Just wait for the floor plan to solidify. Now we start to see that ideally we <em>first solidify the solutions that are most difficulty to foresee, then create and integrate with the simple problems</em>. This might also relate to the good managing principle of mitigating scheduling risk by addressing the biggest unknowns first. But I think the "most constraining variables first" heuristic applies even better. It's not that we don't end up finding the solution without it. We do. Eventually. But we can limit the search to a smaller fraction of the space by applying it.</p>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=What the AI Field of CSPs Teaches You about Engineering Software&amp;url=https://joelbecker.net/2016/09/what-the-ai-field-of-csps-teaches-you-about-engineering-software.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://joelbecker.net/2016/09/what-the-ai-field-of-csps-teaches-you-about-engineering-software.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=https://joelbecker.net/2016/09/what-the-ai-field-of-csps-teaches-you-about-engineering-software.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+
+                <div class="clear"></div>
+
+
+                </section>
+
+                <script type="text/javascript">
+                    var disqus = 'joelbeckernet';
+                    var disqus_shortname = 'joelbeckernet';
+                    var disqus_identifier = '/2016/09/what-the-ai-field-of-csps-teaches-you-about-engineering-software.html';
+                    var disqus_url = 'https://joelbecker.net/2016/09/what-the-ai-field-of-csps-teaches-you-about-engineering-software.html';
+                </script>
+                <noscript>Please enable JavaScript to view the comments.</noscript>
+                <section class="post-comments">
+                        <a id="show-disqus" class="post-comments-activate" data-disqus-identifier="/2016/09/what-the-ai-field-of-csps-teaches-you-about-engineering-software.html" >Show Comments</a>
+                    <div id="disqus_thread"></div>
+                </section>
+
+                <aside class="post-nav">
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://joelbecker.net/theme/js/script.js"></script>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-65596444-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-65596444-2', { 'anonymize_ip': true });
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'joelbeckernet';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>Scala Application Memory Usage on a Raspberry Pi</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+<link href="https://joelbecker.net/2018/12/scala-application-memory-usage-on-a-raspberry-pi.html" rel="canonical" />
+  <!-- Feed -->
+
+  <link href="https://joelbecker.net/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="https://joelbecker.net/theme/css/code_blocks/github.css" rel="stylesheet">
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+
+    <meta name="description" content="My current project requires some complex software on the Raspberry Pi 3 B+, which has 1GB of RAM. For my technology stack's primary...">
+
+    <meta name="author" content="Joel Becker">
+
+
+
+
+
+<!-- Open Graph -->
+<meta prefix="og: http://ogp.me/ns#" property="og:site_name" content="joelbecker.net"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:title" content="Scala Application Memory Usage on a Raspberry Pi"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:description" content="My current project requires some complex software on the Raspberry Pi 3 B+, which has 1GB of RAM. For my technology stack's primary..."/>
+<meta prefix="og: http://ogp.me/ns#" property="og:locale" content="en_US"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:url" content="https://joelbecker.net/2018/12/scala-application-memory-usage-on-a-raspberry-pi.html"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:type" content="article"/>
+<meta prefix="og: http://ogp.me/ns#" property="article:published_time" content="2018-12-04 00:00:00-08:00"/>
+<meta prefix="og: http://ogp.me/ns#" property="article:modified_time" content=""/>
+<meta prefix="og: http://ogp.me/ns#" property="article:author" content="https://joelbecker.net/author/joel-becker">
+<meta prefix="og: http://ogp.me/ns#" property="article:section" content="tech"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:image" content="https://joelbecker.net/theme/images/post-bg.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "Scala Application Memory Usage on a Raspberry Pi",
+  "headline": "Scala Application Memory Usage on a Raspberry Pi",
+  "datePublished": "2018-12-04 00:00:00-08:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "Joel Becker",
+    "url": "https://joelbecker.net/author/joel-becker"
+  },
+  "image": "https://joelbecker.net/theme/images/post-bg.jpg",
+  "url": "https://joelbecker.net/2018/12/scala-application-memory-usage-on-a-raspberry-pi.html",
+  "description": "My current project requires some complex software on the Raspberry Pi 3 B+, which has 1GB of RAM. For my technology stack's primary..."
+}
+</script>
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" >
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="https://joelbecker.net/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">Scala Application Memory Usage on a Raspberry Pi</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="https://joelbecker.net/author/joel-becker">Joel Becker</a>
+            | <time datetime="Tue 04 December 2018">Tue 04 December 2018</time>
+        </span>
+        <!-- TODO : Modified check -->
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <p>My current project requires some complex software on the Raspberry Pi 3 B+, which has 1GB of RAM. For my technology stack's primary components, I've chosen Scala, OpenCV, and TensorFlow. Typically C++ or python is used with OpenCV or TensorFlow. However,</p>
+<ol>
+<li>C++ is low level, and I've been sorry one too many times for choosing it (I know there can be plenty of discussion there around e.g. C++14, but that's for another day).</li>
+<li>I would need a significant refresher and update on the latest C++ language standards, boost libraries, and libraries for HTTP, high-level concurrency, etc.</li>
+<li>While I've used Python, I'm no master of it, and while I could become one, I've already taken on way too many "masteries"; it's time to limit my learning in favor of more productivity, when within reason; there will always be plenty of learning to do on other fronts in technology and software development.</li>
+<li>Python isn't the quickest slitherer among languages and platforms anyway, and yes slitherer is a real word, because I just used it. (...I don't actually agree with that philosophy, but sometimes we adopt a way of thinking for immediate convenience rather than truth, don't we? An oh-so-subconscious technique to be avoided in weightier matters.)</li>
+</ol>
+<p>Scala provides a high-level language and platform, concise code that can be quickly changed and maintained, and the benefits of both the functional and OO paradigms. (That's right, I'm not a functional purists, though I use OO almost solely for data objects and for organization of functions). And equally important, I'm already seasoned in its ecosystem.</p>
+<p><em>However</em>, especially in a large project, project risks must be mitigated <em>up front</em>, else you pay big ouchies later when you've already invested precious time and resources into a decision that won't work, or that turns out to be significantly more costly than an alternative. </p>
+<p>This application will be using computer vision and machine learning, but potentially memory-intensive. So one of the first risks to shoot down is if a scala application, <em>with</em> its dependencies, would </p>
+<p>scala app, no additional dependencies (21MB / 2.4% RAM, 5.6MB on disk): </p>
+<p>scala app with dependencies (31MB / 3.4% RAM, 12.4MB on disk):</p>
+<p>On my Windows desktop, the same scala app-with-no-dependencies used 862MB of RAM! That the scala app with large dependencies takes only 31MB of RAM is great news. 3.4% is a significant price, but worth the increased speed and ease of development with scala instead of C++. If I need to free up RAM e.g. for a large CNN, I can free it up other ways. Look at the other processes for example:</p>
+<p>Xorg, the Raspbian/Debian/Linx X Windows gui process, takes 6%/54MB, so using command-line-only Linux gets rid of that. Using SSH instead of VNC during development would free up another 1.6%/11MB or so if necessary. That's about all we can eliminate from the processes though; that 30MB is very large compared to the other processes. But even with a C++ app, the majority of our application's RAM will be used by CNN(s) and image processing, both of which can be tweaked for memory usage. I don't see any need to sacrifice scala or JVM over memory usage.</p>
+<p>The dependencies I added were:
+scala-library:2.11.8
+akka-actor
+slf4j-api, slf4j-log4j
+commons-io
+commons-codec
+xstream
+joda-time
+com.google.code.gson
+org.apache.httpcomponents: 4.1</p>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=Scala Application Memory Usage on a Raspberry Pi&amp;url=https://joelbecker.net/2018/12/scala-application-memory-usage-on-a-raspberry-pi.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://joelbecker.net/2018/12/scala-application-memory-usage-on-a-raspberry-pi.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=https://joelbecker.net/2018/12/scala-application-memory-usage-on-a-raspberry-pi.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+
+                <div class="clear"></div>
+
+
+                </section>
+
+                <script type="text/javascript">
+                    var disqus = 'joelbeckernet';
+                    var disqus_shortname = 'joelbeckernet';
+                    var disqus_identifier = '/2018/12/scala-application-memory-usage-on-a-raspberry-pi.html';
+                    var disqus_url = 'https://joelbecker.net/2018/12/scala-application-memory-usage-on-a-raspberry-pi.html';
+                </script>
+                <noscript>Please enable JavaScript to view the comments.</noscript>
+                <section class="post-comments">
+                        <a id="show-disqus" class="post-comments-activate" data-disqus-identifier="/2018/12/scala-application-memory-usage-on-a-raspberry-pi.html" >Show Comments</a>
+                    <div id="disqus_thread"></div>
+                </section>
+
+                <aside class="post-nav">
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://joelbecker.net/theme/js/script.js"></script>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-65596444-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-65596444-2', { 'anonymize_ip': true });
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'joelbeckernet';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

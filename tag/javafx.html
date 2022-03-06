@@ -1,116 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="generator" content="Pelican" />
-        <title>joelbecker.net - javafx</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>joelbecker.net - Tag javafx</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+<link href="/" rel="canonical" />
+  <!-- Feed -->
+
+  <link href="/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="/theme/css/code_blocks/github.css" rel="stylesheet">
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
 </head>
+<!-- TODO : Body class -->
+<body class="home-template">
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">joelbecker.net</a></h1>
-                <nav><ul>
-                    <li><a href="/category/life.html">life</a></li>
-                    <li><a href="/category/misc.html">misc</a></li>
-                    <li><a href="/category/music.html">music</a></li>
-                    <li><a href="/category/tech.html">tech</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/running-scala-javafx-on-android-ios-windows-and-mac-os-x.html">Running Scala + JavaFX on Android, iOS, Windows, and Mac OS X</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2016-03-12T00:00:00-08:00">
-                Published: Sat 12 March 2016
-        </abbr>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/joel-becker.html">Joel Becker</a>
-        </address>
-<p>In <a href="/category/tech.html">tech</a>.</p>
-<p>tags: <a href="/tag/scala.html">[scala</a> <a href="/tag/javafx.html">javafx</a> <a href="/tag/android.html">android</a> <a href="/tag/ios.html">ios</a> <a href="/tag/windows.html">windows</a> <a href="/tag/os-x.html">os x</a> <a href="/tag/gradle.html">gradle</a> <a href="/tag/javafxports.html">JavaFXPorts</a> <a href="/tag/jfxmobile.html">jfxmobile]</a> </p>
-</footer><!-- /.post-info --><p>Since I wasn't able to find <em>anything</em> on the Internet for how to make a Windows/OS X/Android/iOS app using Scala and JavaFX, I'm sharing what I figured out for how to do it, along with an example/template project for your own use.</p>
-<h3>Why Scala and JavaFX?</h3>
-<p>Well <a href="/blog/scala-javafx-the-killer-duo-for-multi-platform">that's another article</a>. For those wanting to get started right away, here we go!</p>
-<p><img alt="Algorithm Block Diagram" src="/images/scala-javafx-four-platforms.jpg?classes=image-center"></p>
-<p>"What happened on the iPad?" you ask? Appears to be a JavaFXPorts  charts rendering issue on my old iPad 2. I'll keep you posted. But I believe the normal UI controls all work fine.  </p>
-<h3>Just give me the code</h3>
-<p>Fine! Sheesh. <a href="https://github.com/voxoid0/scala-javafx-desktop-android-ios">Here's an example gradle project</a> that will build Scala and JavaFX code for all four platforms. You can use it as a template project for your own app. But you'll still need the other prerequisites like Android SDK and RoboVM as described below.</p>
-<h3>So how do you do it?</h3>
-<p>You have things to do and so do I, so in quick, straightforward bullet points, here's how you do it:</p>
-<ul>
-<li>The <strong>jfxmobile</strong> gradle plugin makes it easy to build a Java+JavaFX project for all four platforms.<ul>
-<li>When it builds for desktop, it simply utilizes the JavaFX framework included in JavaSE. Use the <code>run</code> gradle task for that.</li>
-<li>For mobile, it employs the <strong>JavaFXPorts</strong> project, which ports JavaFX to Android and iOS. </li>
-<li>The Android build requires the <a href="http://developer.android.com/sdk/index.html">Android SDK</a>, as any means of building for Android does. </li>
-<li>You'll either need and ANDROID_HOME environment variable pointing to the SDK's directory on your machine (that's what I do), or use the androidSdk property in your gradle.build file as described in the <a href="http://docs.gluonhq.com/javafxports/">JavaFXPorts documentation</a> (also linked later).</li>
-<li>The iOS build requires you to have:</li>
-<li>OS X installed on a Mac or <a href="http://www.hackintosh.com/">on a PC</a>, though the latter is legally questionable if you're producing commercial software. Then within your OS X installation you need:</li>
-<li><a href="https://developer.apple.com/xcode/download/">XCode</a> installed. You don't need to use XCode as your IDE; it's just there for stuff required for gradle or anything else to be able to build for iOS.</li>
-<li><a href="https://robovm.com/">RoboVM</a> installed<ul>
-<li>RoboVM has a free 30-day trial, and is free for people making games with libgdx. After that it is <a href="https://robovm.com/pricing/">rather expensive</a>. Nevertheless it is worth the price compared to porting and maintaining a parallel Swift or Objective-C code base. (And a better investment than using Xamarine / .NET from my experience.)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>The <strong>scala</strong> gradle plugin compiles Scala source code into Java byte code. <ul>
-<li>After that happpens in the build, it can treat the byte code as if it was originally plain old icky Java code. </li>
-<li>You'll notice the build.gradle  file of the "modules" module in the example project has <code>apply plugin: 'scala'</code></li>
-</ul>
-</li>
-<li>Likely the <strong>most valuable point</strong> here -- that hours of struggle and digital black eyes taught me -- is that you must (at the time of this writing anyway) put your Scala code in a <em>separate gradle module</em> from the module using the jfxmobile plug-in.<ul>
-<li>The jfxmobile plugin <em>does not play nice</em> with the scala plugin. No matter how hard you try, you'll get all kinds of weird stuff. Believe me. A lot of it has to do with the retrolambda plugin that the jfxmobile plugin uses, and trying to disable a transitive plugin use is a mess, if you can even make it work.</li>
-<li>But this requirement of separation isn't bad. In a sense it creates a <em>good</em> separation: the jfxmobile project serves to glue everything together for each platform, but it won't house the bulk of the code. The other projects where the Scala code resides are basically just plain old library projects.</li>
-</ul>
-</li>
-<li>You can add more Scala projects to the "modules" project if you would like to separate more of your application's code into modules. <em>modules</em>'s build.gradle file has the build settings common for all Scala projects, such as applying the scala plugin and depending on the scala library.</li>
-</ul>
-<p>Beside the above particulars for using Scala with JavaFXPorts, you can follow <a href="http://docs.gluonhq.com/javafxports/">the regular JavaFXPorts instructions here</a> to get you up and running.</p>
-<p>Now go make some multi-platform Scala apps! </p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+    </ul>
+  </div>
+</nav>
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="blog-header" >
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">Tag javafx</h1>
+        <span class="blog-description">Posts: 2</span>
+      </div>
+    </header>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/scala-javafx-the-killer-duo-for-multi-platform-development.html" rel="bookmark"
-                           title="Permalink to Scala + JavaFX: The Killer Duo for Multi-Platform Development">Scala + JavaFX: The Killer Duo for Multi-Platform Development</a></h1>
-                </header>
+  <section id="wrapper">
+    <a class="hidden-close"></a>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-03-10T00:00:00-08:00">
-                Published: Thu 10 March 2016
-        </abbr>
+<div id="index" class="container">
+  <main class="content" role="main">
+    <div class="extra-pagination">
+    </div>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/joel-becker.html">Joel Becker</a>
-        </address>
-<p>In <a href="/category/tech.html">tech</a>.</p>
-<p>tags: <a href="/tag/scala.html">[scala</a> <a href="/tag/javafx.html">javafx</a> <a href="/tag/cross-platform.html">cross-platform</a> <a href="/tag/mobile.html">mobile</a> <a href="/tag/android.html">android</a> <a href="/tag/ios.html">ios</a> <a href="/tag/windows.html">windows</a> <a href="/tag/os-x.html">os x</a> <a href="/tag/startup.html">startup</a> <a href="/tag/productivity.html">productivity]</a> </p>
-</footer><!-- /.post-info -->                <p><img alt="Original Batman and Robin" src="/images/batman-and-robin.jpg?classes=float-right&amp;cropResize=320,240"></p>
-<p>...in my case at least. But likely for you too! Here's why.</p>
-<p>I'm building an application for our start-up company that is to run on four of the major desktop and mobile platforms: Windows, OS X, Android, and iOS. Also, being on a relatively small budget, our only developer is …</p>
-                <a class="readmore" href="/scala-javafx-the-killer-duo-for-multi-platform-development.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-        </section><!-- /#extras -->
+        <article class="post">
+        <div class="inner">
+            <header class="post-header">
+                <h2 class="post-title"><a href="/running-scala-javafx-on-android-ios-windows-and-mac-os-x.html" rel="bookmark" title="Permalink to Running Scala + JavaFX on Android, iOS, Windows, and Mac OS X">Running Scala + JavaFX on Android, iOS, Windows, and Mac OS X</a>
+                </h2>
+                <span class="post-meta">
+                        <a href="/author/joel-becker.html">Joel Becker</a>
+                     | <time datetime="Sat 12 March 2016">Sat 12 March 2016</time>
+                </span>
+                <div class="clear"></div>
+            </header>
+                <section class="post-excerpt">
+                    <p>
+                        Since I wasn't able to find anything on the Internet for how to make a Windows/OS X/Android/iOS app using Scala and JavaFX, I'm sharing what I figured out for how to do it, along with an example/template project for your own use. Why Scala and JavaFX …
+                    </p>
+                </section>
+            </div>
+        </article>
+        <article class="post">
+        <div class="inner">
+            <header class="post-header">
+                <h2 class="post-title"><a href="/scala-javafx-the-killer-duo-for-multi-platform-development.html" rel="bookmark" title="Permalink to Scala + JavaFX: The Killer Duo for Multi-Platform Development">Scala + JavaFX: The Killer Duo for Multi-Platform Development</a>
+                </h2>
+                <span class="post-meta">
+                        <a href="/author/joel-becker.html">Joel Becker</a>
+                     | <time datetime="Thu 10 March 2016">Thu 10 March 2016</time>
+                </span>
+                <div class="clear"></div>
+            </header>
+                <section class="post-excerpt">
+                    <p>
+                        ...in my case at least. But likely for you too! Here's why. I'm building an application for our start-up company that is to run on four of the major desktop and mobile platforms: Windows, OS X, Android, and iOS. Also, being on a relatively small...
+                    </p>
+                </section>
+            </div>
+        </article>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
-                </address><!-- /#about -->
+  </main>
+</div>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
 
-                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/theme/js/script.js"></script>
 
 </body>
 </html>
